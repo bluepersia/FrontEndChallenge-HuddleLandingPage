@@ -508,6 +508,19 @@ h1 + p
     color: var(--color-very-dark-cyan);
 }
 
+.btn-white 
+{
+    background-color: white;
+    color: var(--color-pink);
+}
+
+.btn-white:hover 
+{
+    background-color: var(--color-pink);
+    color:white;
+}
+
+
 
 
 
