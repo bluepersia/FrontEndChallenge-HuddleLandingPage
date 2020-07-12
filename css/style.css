@@ -4,6 +4,7 @@
     --font-body: 'Open Sans', sans-serif;
 
     --color-pink: hsl(322, 100%, 66%);
+    --color-light-pink: hsl(322, 100%, 86%);
     --color-very-dark-cyan: hsl(192, 100%, 9%);
     --color-very-pale-blue: hsl(207, 100%, 98%);
     --color-light-gray: hsl(0, 0%, 65%);
@@ -59,6 +60,8 @@ header p, main p
 {
     font-size: 0.7rem;
     color: var(--color-pink);
+
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
 } 
 
 
@@ -404,7 +407,17 @@ footer::before
         -ms-transform: scale(1.6);
             transform: scale(1.6);
     margin-right: 1.3em;
+
+    transition: transform 250ms, color 250ms;
 }
+
+
+.social-media i:hover 
+{
+    transform: scale(2.5);
+    color: var(--color-pink);
+}
+
 
 
 .btn-subscribe 
@@ -457,23 +470,42 @@ h1 + p
 .btn 
 {
     text-transform: capitalize;
-    border: 1px solid var(--color-pink);
+   
     background: 0;
+    transition: background-color 250ms, transform 250ms, color 250ms;
+
+    border: 1px solid var(--color-pink);
+}
+.btn:hover 
+{
+    transform:scale(1.05);
+}
+
+.btn-pill 
+{
     padding: .45em 1.2em;
     border-radius: 1.5em;
 }
+
 
 .btn-call-to-action 
 {
     font-size: 0.8rem;
     padding: .9em 3em;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-pink 
 {
-    background: var(--color-pink);
+    background-color: var(--color-pink);
     color: white;
     font-weight: bold;
+}
+
+.btn-pink:hover 
+{
+    background-color: var(--color-light-pink);
+    color: var(--color-very-dark-cyan);
 }
 
 
@@ -649,6 +681,19 @@ h1 + p
    {
        margin-left:0;
        margin-right: 1em;
+   }
+
+
+   .block-3::before 
+   {
+       background-image: url(../images/bg-section-top-desktop-2.svg);
+       padding-top: 10.5%;
+   }
+
+   .block-3::after 
+   {
+       background-image: url(../images/bg-section-bottom-desktop-2.svg);
+       padding-top: 9.5%;
    }
 
 
