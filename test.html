@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Fitty Test Page</title>
+
+    <style>
+        .pre-style .fit {
+            display:inline-block;
+            white-space:nowrap;
+        }
+
+        .fixed {
+            border-top:2px solid silver;
+            width:20em;
+        }
+
+        p {
+            margin:0;
+        }
+    </style>
+
+</head>
+<body>
+
+<main>
+
+    <div class="pre-style fixed">
+        <p class="fit" style="color:red;">Integer</p>
+        <p class="fit" style="color:green;">Lorem ipsum dolor sit.</p>
+        <p class="fit" style="color:blue;">consectetur adipiscing elit.</p>
+        <p class="fit" style="color:purple;">aecenas elementum purus nec felis pellentesque, eget volutpat mauris vestibulum.</p>
+    </div>
+
+    <div class="pre-style">
+        <p class="fit" style="color:red;">Integer</p>
+        <p class="fit" style="color:green;">Lorem ipsum dolor sit.</p>
+        <p class="fit" style="color:blue;">consectetur adipiscing elit.</p>
+        <p class="fit" style="color:purple;">aecenas elementum purus nec felis pellentesque, eget volutpat mauris vestibulum.</p>
+    </div>
+
+    <div class="fixed">
+        <p class="fit" style="color:red;">Integer</p>
+        <p class="fit" style="color:green;">Lorem ipsum dolor sit.</p>
+        <p class="fit" style="color:blue;">consectetur adipiscing elit.</p>
+        <p class="fit" style="color:purple;">aecenas elementum purus nec felis pellentesque, eget volutpat mauris vestibulum.</p>
+    </div>    
+
+    <div>
+        <p class="fit" style="color:red;">Integer</p>
+        <p class="fit" style="color:green;">Lorem ipsum dolor sit.</p>
+        <p class="fit" style="color:blue;">consectetur adipiscing elit.</p>
+        <p class="fit" style="color:purple;">aecenas elementum purus nec felis pellentesque, eget volutpat mauris vestibulum.</p>
+    </div>
+
+    
+</main>
+
+<script src="dist/fitty.min.js"></script>
+<script>
+
+var fitties = [];
+
+// is delayed a bit so it's clear in performance timeline when fitty kicks in
+setTimeout(function(){
+    fitties = fitty('.fit');
+    console.log('fitties created');
+}, 1000);
+
+// stop responding to resize after 3 seconds
+setTimeout(function(){
+    fitties.forEach(function(fitty) {
+        fitty.freeze();
+    });
+    console.log('fitties freezed');
+}, 3000);
+
+// start responding to resize after 5 seconds
+setTimeout(function(){
+    fitties.forEach(function(fitty) {
+        fitty.unfreeze();
+    })
+    console.log('fitties unfreezed');
+}, 5000);
+
+// clean up after 5 seconds
+setTimeout(function(){
+    var fitty;
+    while(fitty = fitties.pop()) {
+        fitty.unsubscribe();
+    }
+    console.log('fitties unsubscribed');
+}, 7000);
+
+</script>
+
+</body>
+</html>
